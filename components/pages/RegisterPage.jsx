@@ -19,7 +19,7 @@ function RegisterPage() {
       console.log(result);
       return router.push('/signin');
     } catch (error) {
-      setError(error.message);
+      setError("Something went wrong");
     }
 
     // if (error) {
@@ -34,6 +34,7 @@ function RegisterPage() {
   return (
     <div className="p-6 border-[1px] border-gray-300 flex flex-col justify-center items-center gap-5 lg:w-[40%] md:w-[40%] w-[95%]">
       <h1 className="text-3xl font-semibold text-sky-600">Sign Up</h1>
+      {error && <p className="text-red-400 text-sm">{error}</p>}
       <form onSubmit={handleForm} className="form flex flex-col w-full gap-5">
         <label htmlFor="email">
           <p>Email</p>
